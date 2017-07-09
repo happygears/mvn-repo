@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon May 25 21:26:33 PDT 2015
+socketio-sample-broadcast-0.2.1.pom>=
+socketio-sample-broadcast-0.2.1-sources.jar>=
+socketio-sample-broadcast-0.2.1.war>=

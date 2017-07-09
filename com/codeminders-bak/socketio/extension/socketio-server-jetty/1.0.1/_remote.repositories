@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Feb 11 12:15:14 PST 2016
+socketio-server-jetty-1.0.1.pom>=
+socketio-server-jetty-1.0.1-sources.jar>=
+socketio-server-jetty-1.0.1.jar>=

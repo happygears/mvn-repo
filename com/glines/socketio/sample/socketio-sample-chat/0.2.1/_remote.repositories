@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon May 25 21:26:34 PDT 2015
+socketio-sample-chat-0.2.1.pom>=
+socketio-sample-chat-0.2.1.war>=
+socketio-sample-chat-0.2.1-sources.jar>=

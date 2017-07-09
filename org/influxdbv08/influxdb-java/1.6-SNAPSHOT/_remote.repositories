@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat Nov 28 20:22:13 PST 2015
+influxdb-java-1.6-SNAPSHOT.jar>=
+influxdb-java-1.6-SNAPSHOT.pom>=
