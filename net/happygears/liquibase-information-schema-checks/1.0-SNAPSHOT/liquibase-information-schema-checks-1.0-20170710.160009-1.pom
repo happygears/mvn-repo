@@ -157,12 +157,20 @@
                     <version>2.8.2</version>
                     <configuration>
                         <skip>false</skip>
+                        <uniqueVersion>false</uniqueVersion>
                     </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
-
+    <distributionManagement>
+        <repository>
+            <id>happygears-repository</id>
+        </repository>
+        <snapshotRepository>
+            <id>happygears-shapshots</id>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
