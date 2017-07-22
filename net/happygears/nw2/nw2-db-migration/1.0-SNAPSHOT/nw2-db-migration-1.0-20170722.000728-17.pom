@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>net.happygears.nw2</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>nw2-db-migration</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>happygears</id>
+            <uniqueVersion>false</uniqueVersion>
+            <url>file:../../mvn-repo/</url>
+            <!--<url>snapshot-repo::default::file:../../mvn-repo/</url>-->
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>maven2</id>
+            <url>http://repo.maven.apache.org</url>
+            <!--<url>http://repo1.maven.org/maven2</url>-->
+        </repository>
+
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <id>happygears-mvn-repo</id>
+            <url>https://raw.githubusercontent.com/happygears/mvn-repo/master/</url>
+            <!--<url>https://github.com/happygears/mvn-repo/raw/master</url>-->
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- log4j and dependencies ================== -->
+
+        <!-- See  http://stackoverflow.com/questions/9047949/missing-artifact-com-sun-jdmkjmxtoolsjar1-2-1 -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mail</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+        <!-- using backend/lib/liquibase-3.6.0-SNAPSHOT.jar instead  -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.6.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.happygears</groupId>
+            <artifactId>liquibase-information-schema-checks</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Why 6.9.9:  -->
+        <!-- See https://youtrack.jetbrains.com/issue/IDEA-149750  -->
+        <!-- See https://youtrack.jetbrains.com/issue/IDEA-164265  -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.13.3</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.17</version>
+                <!--<configuration>-->
+                    <!--<suiteXmlFiles>-->
+                        <!--&lt;!&ndash;<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>&ndash;&gt;-->
+                        <!--<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
+                    <!--</suiteXmlFiles>-->
+
+                    <!--<properties>-->
+                        <!--<property>-->
+                            <!--<name>testnames</name>-->
+                            <!--<value>all</value>-->
+                        <!--</property>-->
+                    <!--</properties>-->
+
+                <!--</configuration>-->
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
+
