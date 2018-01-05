@@ -3,10 +3,11 @@
   <groupId>com.codeminders.socketio.sample</groupId>
   <artifactId>socketio-server-sample</artifactId>
   <versioning>
-    <release>1.0.2-a</release>
+    <release>1.0.2-b</release>
     <versions>
       <version>1.0.2-a</version>
+      <version>1.0.2-b</version>
     </versions>
-    <lastUpdated>20180104173828</lastUpdated>
+    <lastUpdated>20180105022100</lastUpdated>
   </versioning>
 </metadata>
