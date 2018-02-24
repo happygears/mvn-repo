@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <groupId>com.license4j</groupId>
+    <artifactId>license4j-runtime-library</artifactId>
+    <versioning>
+        <latest>4.6.9</latest>
+        <release>4.6.9</release>
+        <versions>
+            <version>4.6.9</version>
+            <version>4.6.8</version>
+            <version>4.6.7</version>
+            <version>4.6.6</version>
+            <version>4.6.5</version>
+            <version>4.6.4</version>
+            <version>4.6.3</version>
+            <version>4.6.2</version>
+            <version>4.6.1</version>
+            <version>4.6.0</version>
+            <version>4.5.5</version>
+            <version>4.5.4</version>
+            <version>4.5.3</version>
+            <version>4.5.2</version>
+            <version>4.5.1</version>
+            <version>4.5.0</version>
+        </versions>
+        <lastUpdated>20170630000000</lastUpdated>
+    </versioning>
+</metadata>
