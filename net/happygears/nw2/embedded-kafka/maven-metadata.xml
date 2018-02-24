@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>net.happygears.nw2</groupId>
+  <artifactId>embedded-kafka</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20180224234426</lastUpdated>
+  </versioning>
+</metadata>
