@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.happygears.nw2</groupId>
+    <artifactId>embedded-kafka</artifactId>
+    <version>1.0.1</version>
+
+    <packaging>jar</packaging>
+    <!--<name>embedded-kafka</name>-->
+    <!--<url>http://www.happygears.net</url>-->
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <kafka-server-version>1.0.0</kafka-server-version>
+    </properties>
+
+    <!--
+
+    This module builds as a standalone project, it is not even listed in
+    parent pom.xml and is not declared as a dependency. It should really be in its own
+    git repository since it produces a single jar that is a dependency for
+    nw2 backend, but I was too lazy to create and manage it as a standalone mini-project.
+
+    Run script `deploy.sh` to build and deploy the jar
+
+    -->
+
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>happygears</id>
+            <uniqueVersion>true</uniqueVersion>
+            <url>file:../../mvn-repo/</url>
+            <!--<url>snapshot-repo::default::file:../../mvn-repo/</url>-->
+        </snapshotRepository>
+        <repository>
+            <id>happygears</id>
+            <uniqueVersion>false</uniqueVersion>
+            <url>file:../../mvn-repo/</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <id>happygears-mvn-repo</id>
+            <url>https://raw.githubusercontent.com/happygears/mvn-repo/master/</url>
+            <!--<url>https://github.com/happygears/mvn-repo/raw/master</url>-->
+        </repository>
+
+    </repositories>
+
+    <dependencies>
+
+        <!-- log4j and dependencies ================== -->
+
+         <!--See  http://stackoverflow.com/questions/9047949/missing-artifact-com-sun-jdmkjmxtoolsjar1-2-1-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mail</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Kafka  -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.12</artifactId>
+            <version>${kafka-server-version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <directory>target</directory>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/python</directory>
+                <targetPath>python</targetPath>
+                <excludes>
+                    <exclude>**/*py.class</exclude>
+                </excludes>
+            </resource>
+
+            <!--
+            Filter only "*.properties" files. This is necessary because otherwise Maven
+            tries to filter images and breaks them
+            -->
+            <resource>
+                <directory>${basedir}/src/main/resources/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <directory>${basedir}/src/main/resources/</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/*.properties</exclude>
+                </excludes>
+            </resource>
+
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <forceCreation>true</forceCreation>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
+
