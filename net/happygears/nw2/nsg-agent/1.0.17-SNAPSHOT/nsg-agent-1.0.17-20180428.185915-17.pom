@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.happygears.nw2</groupId>
+    <artifactId>nsg-agent</artifactId>
+    <version>1.0.17-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <guava-version>18.0</guava-version>
+        <jetbrains-version>15.0</jetbrains-version>
+        <kafka-clients-version>1.0.0</kafka-clients-version>
+
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+
+    </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>happygears</id>
+            <uniqueVersion>true</uniqueVersion>
+            <url>file:../mvn-repo/</url>
+            <!--<url>snapshot-repo::default::file:../../mvn-repo/</url>-->
+        </snapshotRepository>
+        <repository>
+            <id>happygears</id>
+            <uniqueVersion>false</uniqueVersion>
+            <url>file:../mvn-repo/</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <!--<repository>-->
+            <!--<id>maven2</id>-->
+            <!--<url>http://repo.maven.apache.org</url>-->
+            <!--&lt;!&ndash;<url>http://repo1.maven.org/maven2</url>&ndash;&gt;-->
+        <!--</repository>-->
+
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <id>happygears-mvn-repo</id>
+            <url>https://raw.githubusercontent.com/happygears/mvn-repo/master/</url>
+            <!--<url>https://github.com/happygears/mvn-repo/raw/master</url>-->
+        </repository>
+    </repositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>commons-daemon</groupId>
+            <artifactId>commons-daemon</artifactId>
+            <version>1.0.15</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.0</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+        <!-- log4j and dependencies ================== -->
+
+        <!-- See  http://stackoverflow.com/questions/9047949/missing-artifact-com-sun-jdmkjmxtoolsjar1-2-1 -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mail</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Kafka  -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka-clients-version}</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.kafka</groupId>-->
+            <!--<artifactId>kafka-streams</artifactId>-->
+            <!--<version>${kafka-clients-version}</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.0.pr3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.9.0.pr3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.0.pr3</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.datatype</groupId>-->
+            <!--<artifactId>jackson-datatype-jdk8</artifactId>-->
+            <!--<version>2.9.0.pr3</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.datatype</groupId>-->
+            <!--<artifactId>jackson-datatype-guava</artifactId>-->
+            <!--<version>2.9.0.pr3</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.fasterxml.uuid</groupId>
+            <artifactId>java-uuid-generator</artifactId>
+            <version>3.1.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.snmp4j</groupId>
+            <artifactId>snmp4j</artifactId>
+            <version>2.5.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.fusesource</groupId>
+            <artifactId>sigar</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.seancfoley</groupId>
+            <artifactId>ipaddress</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.rocksdb</groupId>
+            <artifactId>rocksdbjni</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+
+        <!--
+                 Why 6.9.9:
+                 See https://youtrack.jetbrains.com/issue/IDEA-149750
+                 See https://youtrack.jetbrains.com/issue/IDEA-164265
+
+                 but 6.11 works
+        -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.11</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <scm>
+        <!-- Replace the connection below with your project connection -->
+        <connection>scm:git:git@github.com:happygears/nsg_agent.git</connection>
+    </scm>
+
+    <build>
+        <directory>target</directory>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <!--<finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>-->
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>target/generated/build-metadata</directory>
+            </resource>
+            <resource>
+                <directory>src/main/bash</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+
+            <!--  http://www.mojohaus.org/buildnumber-maven-plugin/create-metadata-mojo.html  -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>create-metadata</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <shortRevisionLength>5</shortRevisionLength>
+                    <attach>true</attach>
+                    <!--make it available for jar/war classpath resource -->
+                    <addOutputDirectoryToResources>true</addOutputDirectoryToResources>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <forceCreation>true</forceCreation>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <version>2.1.5</version>
+                <executions>
+                    <execution>
+                        <id>generate-rpm</id>
+                        <goals>
+                            <goal>rpm</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+
+                <configuration>
+                    <license>(C) 2013-2018 Happy Gears, Inc</license>
+                    <group>Applications/System</group>
+                    <packager>Happy Gears, Inc</packager>
+                    <prefix>/opt/nsg-agent</prefix>
+                    <release>${timestamp}</release>
+                    <defineStatements>
+                        <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>
+                        <defineStatement>_binaries_in_noarch_packages_terminate_build 0</defineStatement>
+                        <defineStatement>_target noarch-linux</defineStatement>
+                        <defineStatement>_target_arch noarch</defineStatement>
+                        <defineStatement>_target_os linux</defineStatement>
+                    </defineStatements>
+
+                    <description>
+                        NetSpyGlass is an integrated network discovery, mapping and monitoring application.
+                        NetSpyGlass Agent is a small agent that runs on-premise, performs SNMP polling of
+                        the devices and sends collected data to NetSpyGlass servers running elsewhere
+                    </description>
+
+                    <provides>
+                        <provide>nsg-agent</provide>
+                    </provides>
+
+                    <requires>
+                        <require>java &gt;= 1.8.0</require>
+                        <require>jsvc</require>
+                    </requires>
+
+                    <mappings>
+                        <mapping>
+                            <directory>/opt/nsg-agent/versions/${project.version}/doc</directory>
+                            <documentation>true</documentation>
+                            <filemode>444</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                            <sources>
+                                <source>
+                                    <location>doc</location>
+                                </source>
+                            </sources>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/versions/${project.version}/bin</directory>
+                            <documentation>false</documentation>
+                            <filemode>755</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                            <sources>
+                                <source>
+                                    <location>${project.build.directory}/classes/nsg-agent.sh</location>
+                                </source>
+                            </sources>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/versions/${project.version}/bin</directory>
+                            <documentation>false</documentation>
+                            <filemode>755</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                            <sources>
+                                <source>
+                                    <location>${project.build.directory}/classes/post-install.sh</location>
+                                </source>
+                            </sources>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/versions/${project.version}/bin</directory>
+                            <documentation>false</documentation>
+                            <filemode>755</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                            <sources>
+                                <source>
+                                    <location>${project.build.directory}/classes/pre-uninstall.sh</location>
+                                </source>
+                            </sources>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/home</directory>
+                            <documentation>false</documentation>
+                            <configuration>true</configuration>
+                            <filemode>644</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                            <sources>
+                                <source>
+                                    <location>src/main/resources/agent.conf</location>
+                                </source>
+                            </sources>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/home/data</directory>
+                            <documentation>false</documentation>
+                            <filemode>755</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/home/data/kafka</directory>
+                            <documentation>false</documentation>
+                            <filemode>755</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/versions/${project.version}/lib</directory>
+                            <documentation>false</documentation>
+                            <filemode>444</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                            <sources>
+                                <source>
+                                    <location>lib</location>
+                                </source>
+                            </sources>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/opt/nsg-agent/versions/${project.version}/lib</directory>
+                            <documentation>false</documentation>
+                            <filemode>444</filemode>
+                            <username>nw2</username>
+                            <groupname>nw2</groupname>
+                            <artifact/>
+                            <dependency>
+                                <excludes>
+                                    <exclude>org.testng:testng</exclude>
+                                </excludes>
+                            </dependency>
+                        </mapping>
+                    </mappings>
+
+
+                    <preinstallScriptlet>
+                        <script>echo "installing now"</script>
+                    </preinstallScriptlet>
+                    <postinstallScriptlet>
+                        <scriptFile>
+                            target/rpm/nsg-agent/tmp-buildroot/opt/nsg-agent/versions/${project.version}/bin/post-install.sh
+                        </scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </postinstallScriptlet>
+                    <preremoveScriptlet>
+                        <scriptFile>
+                            target/rpm/nsg-agent/tmp-buildroot/opt/nsg-agent/versions/${project.version}/bin/pre-uninstall.sh
+                        </scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </preremoveScriptlet>
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
