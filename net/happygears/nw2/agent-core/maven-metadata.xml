@@ -3,7 +3,7 @@
   <groupId>net.happygears.nw2</groupId>
   <artifactId>agent-core</artifactId>
   <versioning>
-    <release>1.6.3</release>
+    <release>1.7.2</release>
     <versions>
       <version>1.1.0-SNAPSHOT</version>
       <version>1.2.0-SNAPSHOT</version>
@@ -22,7 +22,8 @@
       <version>1.6.2</version>
       <version>1.7.1</version>
       <version>1.6.3</version>
+      <version>1.7.2</version>
     </versions>
-    <lastUpdated>20190513024553</lastUpdated>
+    <lastUpdated>20190515051339</lastUpdated>
   </versioning>
 </metadata>
