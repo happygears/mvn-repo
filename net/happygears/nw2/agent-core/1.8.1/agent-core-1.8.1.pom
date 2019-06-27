@@ -15,7 +15,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <guava-version>22.0</guava-version>
         <jetbrains-version>15.0</jetbrains-version>
-        <kafka-clients-version>1.0.1</kafka-clients-version>
+        <kafka-clients-version>2.0.0</kafka-clients-version>
         <jetty-version>9.4.10.v20180503</jetty-version>
 
         <timestamp>${maven.build.timestamp}</timestamp>
