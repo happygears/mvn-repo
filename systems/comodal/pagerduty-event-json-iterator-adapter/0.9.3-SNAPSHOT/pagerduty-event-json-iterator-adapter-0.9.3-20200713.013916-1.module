@@ -1,0 +1,77 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "systems.comodal",
+    "module": "pagerduty-event-json-iterator-adapter",
+    "version": "0.9.3-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5.1",
+      "buildId": "w7gmx5ow5bdspfxhzi53hflm6q"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "pagerduty-event-json-iterator-adapter-0.9.3-SNAPSHOT.jar",
+          "url": "pagerduty-event-json-iterator-adapter-0.9.3-SNAPSHOT.jar",
+          "size": 5757,
+          "sha512": "d4350dc8f32dd9905e94da293a9df0d2e9a1427d8165ce3f12337d07f7041979347cacb547fdd6aaad4ba019a1855c9175f7c68603bb0306869e6ccee331a913",
+          "sha256": "dcbad1a15e2c100f2835cb8dd66fcc5e443edf5a34859ed9ca0295791cfa4c97",
+          "sha1": "f115882bef72fd8d8229dbbf6048c798926a60fd",
+          "md5": "b4eb0f9902f1691a051ebd5a00235e1c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "systems.comodal",
+          "module": "pagerduty-event-client",
+          "version": {
+            "requires": "0.9.3-SNAPSHOT"
+          }
+        },
+        {
+          "group": "systems.comodal",
+          "module": "json-iterator",
+          "version": {
+            "requires": "2.3.+"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "pagerduty-event-json-iterator-adapter-0.9.3-SNAPSHOT.jar",
+          "url": "pagerduty-event-json-iterator-adapter-0.9.3-SNAPSHOT.jar",
+          "size": 5757,
+          "sha512": "d4350dc8f32dd9905e94da293a9df0d2e9a1427d8165ce3f12337d07f7041979347cacb547fdd6aaad4ba019a1855c9175f7c68603bb0306869e6ccee331a913",
+          "sha256": "dcbad1a15e2c100f2835cb8dd66fcc5e443edf5a34859ed9ca0295791cfa4c97",
+          "sha1": "f115882bef72fd8d8229dbbf6048c798926a60fd",
+          "md5": "b4eb0f9902f1691a051ebd5a00235e1c"
+        }
+      ]
+    }
+  ]
+}

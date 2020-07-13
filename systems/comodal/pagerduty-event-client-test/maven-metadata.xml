@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>systems.comodal</groupId>
+  <artifactId>pagerduty-event-client-test</artifactId>
+  <versioning>
+    <latest>0.9.3-SNAPSHOT</latest>
+    <versions>
+      <version>0.9.3-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20200713013916</lastUpdated>
+  </versioning>
+</metadata>

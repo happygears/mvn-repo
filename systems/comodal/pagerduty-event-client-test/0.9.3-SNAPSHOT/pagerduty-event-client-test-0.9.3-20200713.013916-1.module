@@ -1,0 +1,91 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "systems.comodal",
+    "module": "pagerduty-event-client-test",
+    "version": "0.9.3-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5.1",
+      "buildId": "w7gmx5ow5bdspfxhzi53hflm6q"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "pagerduty-event-client-test-0.9.3-SNAPSHOT.jar",
+          "url": "pagerduty-event-client-test-0.9.3-SNAPSHOT.jar",
+          "size": 9964,
+          "sha512": "edf09894fb987bda838a81381501e9db08d067dfe344678d473a4c7f4122eed05afd6748ccc169d12c91dcca04ac6dd313d1a9b4d6fe64d5926157ff076eee5b",
+          "sha256": "dafc8b097c1569bdbb174223b36fe2d30edb3673fc15e578984d50ca11fa7434",
+          "sha1": "de3f966b0ba94608c808d60fbdfe3affd45019ff",
+          "md5": "b15c4c018b98fa2dddb8883cfd6d7e55"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "systems.comodal",
+          "module": "pagerduty-event-client",
+          "version": {
+            "requires": "0.9.3-SNAPSHOT"
+          }
+        },
+        {
+          "group": "systems.comodal",
+          "module": "pagerduty-event-json-iterator-adapter",
+          "version": {
+            "requires": "0.9.3-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "+"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-engine",
+          "version": {
+            "requires": "+"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "pagerduty-event-client-test-0.9.3-SNAPSHOT.jar",
+          "url": "pagerduty-event-client-test-0.9.3-SNAPSHOT.jar",
+          "size": 9964,
+          "sha512": "edf09894fb987bda838a81381501e9db08d067dfe344678d473a4c7f4122eed05afd6748ccc169d12c91dcca04ac6dd313d1a9b4d6fe64d5926157ff076eee5b",
+          "sha256": "dafc8b097c1569bdbb174223b36fe2d30edb3673fc15e578984d50ca11fa7434",
+          "sha1": "de3f966b0ba94608c808d60fbdfe3affd45019ff",
+          "md5": "b15c4c018b98fa2dddb8883cfd6d7e55"
+        }
+      ]
+    }
+  ]
+}
